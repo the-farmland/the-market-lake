@@ -4,9 +4,9 @@ import json
 
 router = APIRouter()
 
-@router.get("/article/{id}")
+@router.get("/product/{id}")
 async def get_article(id: int):
-    news_file = Path("data/news.json")
+    news_file = Path("data/products.json")
     if news_file.exists():
         with open(news_file, "r") as file:
             news_data = json.load(file)
