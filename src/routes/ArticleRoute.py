@@ -4,6 +4,7 @@ import json
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
 
+
 router = APIRouter()
 
 async def authenticate(request: Request):
@@ -11,7 +12,7 @@ async def authenticate(request: Request):
     await is_authenticated_serial(request)
     return True
 
-def read_products_file() -> List[dict]:
+def read_products_file():
     products_file = Path("data/products.json")
     if products_file.exists():
         with open(products_file, "r") as file:
