@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from pathlib import Path
 import json
-from src.helpers.serialAuth import is_authenticated_serial
+from src.helpers.SerialAuth import is_authenticated_serial
 
 router = APIRouter()
 
