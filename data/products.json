@@ -1,7 +1,7 @@
 [
   {
     "id": "p12",
-    "title": "plus Woman's Tshirt / Small",
+    "title": "plus Womans Tshirt / Small",
     "product-department":"clothing",
     "product-category":"womans-clothing"
     "product-dressing-image":"example.com/image",
@@ -28,7 +28,7 @@
     "product-featured-offers":"true",
     "product-featured-offers-item-id":"p12",
     "product-pre-order-guarantee":"true",
-    "product-shipping-via-truck":"true',
+    "product-shipping-via-truck":"true",
     "product-shipping-via-pickup":"true",
     "product-shipping-via-drone":"true",
     "product-shipping-via-airdrop":"true",
@@ -71,7 +71,7 @@
     "product-buy-box-item-cannot-be-shipped-to-user":"false",
     "product-buy-box-disabled":"false",
     "product-buy-box-restricted":"false",
-    "product-buy-box-item-cannot-be-shipped":"false',
+    "product-buy-box-item-cannot-be-shipped":"false",
     "product-buy-box-item-not-in-stock":"false",
     "product-list-price": "3.345.840",
     "product--adjusted-price":"12Mn"
