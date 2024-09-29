@@ -15,8 +15,9 @@ def read_products_file():
 @router.get("/product/{id}")
 async def get_product(id: int):
     products_data = read_products_file()
-    if 0 <= id < len(products_data):
-        return {"product": products_data[id]}
+    index = id - 1  # Adjust ID to match 0-based index
+    if 0 <= index < len(products_data):
+        return {"product": products_data[index]}
     else:
         raise HTTPException(status_code=404, detail="Product not found")
 
@@ -35,16 +36,22 @@ async def create_product(request: Request):
 
 @router.put("/product/update/{id}")
 async def update_product(id: int, request: Request):
-    # Implement product update logic
     products_data = read_products_file()
-    # Update product in products_data
-    # Write updated products_data back to file
-    pass
+    index = id - 1  # Adjust ID to match 0-based index
+    if 0 <= index < len(products_data):
+        # Update product in products_data
+        # Write updated products_data back to file
+        pass
+    else:
+        raise HTTPException(status_code=404, detail="Product not found")
 
 @router.delete("/product/delete/{id}")
 async def delete_product(id: int):
-    # Implement product deletion logic
     products_data = read_products_file()
-    # Remove product from products_data
-    # Write updated products_data back to file
-    pass
+    index = id - 1  # Adjust ID to match 0-based index
+    if 0 <= index < len(products_data):
+        # Remove product from products_data
+        # Write updated products_data back to file
+        pass
+    else:
+        raise HTTPException(status_code=404, detail="Product not found")
