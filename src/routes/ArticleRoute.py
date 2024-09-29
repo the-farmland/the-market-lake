@@ -1,8 +1,15 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 from pathlib import Path
 import json
+from src.helpers.SerialAuth import is_authenticated_serial
+from src.helpers.TheHasher import is_authenticated_hash
 
 router = APIRouter()
+
+async def authenticate(request: Request):
+    await is_authenticated_hash(request)
+    await is_authenticated_serial(request)
+    return True
 
 def read_products_file():
     products_file = Path("data/products.json")
@@ -13,7 +20,7 @@ def read_products_file():
         raise HTTPException(status_code=404, detail="Products file not found")
 
 @router.get("/product/{id}")
-async def get_product(id: str):  # Removed authentication
+async def get_product(id: str, auth: bool = Depends(authenticate)):  # Change id to str
     products_data = read_products_file()
     for product in products_data:
         if product["id"] == id:
@@ -21,26 +28,25 @@ async def get_product(id: str):  # Removed authentication
     raise HTTPException(status_code=404, detail="Product not found")
 
 @router.get("/products")
-async def get_products():  # Removed authentication
+async def get_products(auth: bool = Depends(authenticate)):
     products_data = read_products_file()
     return {"products": products_data}
 
 @router.post("/product/post")
-async def create_product(request: Request):  # Removed authentication
+async def create_product(request: Request, auth: bool = Depends(authenticate)):
+    # Implement product creation logic
     products_data = read_products_file()
-    new_product = await request.json()
-    products_data.append(new_product)  # Add new product to products_data
+    # Add new product to products_data
     # Write updated products_data back to file
-    with open(Path("data/products.json"), "w") as file:
-        json.dump(products_data, file)
-    return {"product": new_product}
+    pass
 
 @router.put("/product/update/{id}")
-async def update_product(id: str, request: Request):  # Removed authentication
+async def update_product(id: str, request: Request, auth: bool = Depends(authenticate)):  # Change id to str
     products_data = read_products_file()
     for i, product in enumerate(products_data):
         if product["id"] == id:
-            products_data[i].update(await request.json())  # Update product
+            # Update the product with the data from the request
+            products_data[i].update(await request.json())
             # Write updated products_data back to file
             with open(Path("data/products.json"), "w") as file:
                 json.dump(products_data, file)
@@ -48,11 +54,11 @@ async def update_product(id: str, request: Request):  # Removed authentication
     raise HTTPException(status_code=404, detail="Product not found")
 
 @router.delete("/product/delete/{id}")
-async def delete_product(id: str):  # Removed authentication
+async def delete_product(id: str, auth: bool = Depends(authenticate)):  # Change id to str
     products_data = read_products_file()
     for i, product in enumerate(products_data):
         if product["id"] == id:
-            del products_data[i]  # Remove product
+            del products_data[i]
             # Write updated products_data back to file
             with open(Path("data/products.json"), "w") as file:
                 json.dump(products_data, file)
