@@ -11,7 +11,11 @@
     "product-image-left-side":"www.example.com/image",
     "product-image-top-side":"www.example.com/image",
     "product-image-bottom-side":"www.example.com/image",
-    "product-colors":"color-variations",
+    "product-colors": {
+        "product-color-black": true,
+        "product-color-red": true,
+        "product-color-blue": true
+    },
     "product-size-variations":"size-variations",
     "product-size-chart":"true",
     "product-is-in-stock":"true",
