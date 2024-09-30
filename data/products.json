@@ -12,11 +12,19 @@
     "product-image-top-side":"www.example.com/image",
     "product-image-bottom-side":"www.example.com/image",
     "product-colors": {
-        "product-color-black": true,
-        "product-color-red": true,
-        "product-color-blue": true
+      "product-color-black": true,
+      "product-color-red": true,
+      "product-color-blue": true,
+      "product-color-green":"true",
+      "product-color-pink":"true",
     },
-    "product-size-variations":"size-variations",
+    "product-sizes": {
+      "product-xl": true,
+      "product-l": true,
+      "product-m": true,
+      "product-s":"true",
+      "product-xs":"true",
+    },
     "product-size-chart":"true",
     "product-is-in-stock":"true",
     "product-ships-from":"USA",
@@ -77,6 +85,10 @@
     "product-buy-box-restricted":"false",
     "product-buy-box-item-cannot-be-shipped":"false",
     "product-buy-box-item-not-in-stock":"false",
+    "product-buy-button-enabled":"true",
+    "product-buy-button-purchase-disabled":"false",
+    "product-buy-button-disabled":"false",
+    "product-buy-button-shipping-disabled":"false",
     "product-list-price": "3.345.840",
     "product--adjusted-price":"12Mn"
     
