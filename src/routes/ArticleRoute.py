@@ -1,14 +1,11 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 from pathlib import Path
 import json
-from src.helpers.SerialAuth import is_authenticated_serial
-from src.helpers.TheHasher import is_authenticated_hash
 
 router = APIRouter()
 
 async def authenticate(request: Request):
-    await is_authenticated_hash(request)
-    await is_authenticated_serial(request)
+    # Authentication disabled, returning True directly
     return True
 
 def read_products_file():
@@ -20,7 +17,7 @@ def read_products_file():
         raise HTTPException(status_code=404, detail="Products file not found")
 
 @router.get("/product/{id}")
-async def get_product(id: str, auth: bool = Depends(authenticate)):  # Change id to str
+async def get_product(id: str, auth: bool = Depends(authenticate)):  # Keeping id as str
     products_data = read_products_file()
     for product in products_data:
         if product["id"] == id:
@@ -41,7 +38,7 @@ async def create_product(request: Request, auth: bool = Depends(authenticate)):
     pass
 
 @router.put("/product/update/{id}")
-async def update_product(id: str, request: Request, auth: bool = Depends(authenticate)):  # Change id to str
+async def update_product(id: str, request: Request, auth: bool = Depends(authenticate)):  # Keeping id as str
     products_data = read_products_file()
     for i, product in enumerate(products_data):
         if product["id"] == id:
@@ -54,7 +51,7 @@ async def update_product(id: str, request: Request, auth: bool = Depends(authent
     raise HTTPException(status_code=404, detail="Product not found")
 
 @router.delete("/product/delete/{id}")
-async def delete_product(id: str, auth: bool = Depends(authenticate)):  # Change id to str
+async def delete_product(id: str, auth: bool = Depends(authenticate)):  # Keeping id as str
     products_data = read_products_file()
     for i, product in enumerate(products_data):
         if product["id"] == id:
