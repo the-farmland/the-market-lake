@@ -8,7 +8,7 @@ from src.subroutes.departments.groceries.Groceries_Savings_Subroute import read_
 router = APIRouter()
 
 # Modified authenticate function to optionally disable authentication
-async def authenticate(request: Request, use_auth: bool = False):
+async def authenticate(request: Request, use_auth: bool = True):
     if use_auth:
         await is_authenticated_hash(request)
         await is_authenticated_serial(request)
