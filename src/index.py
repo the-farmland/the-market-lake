@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from src.dtos.ISayHelloDto import ISayHelloDto
 from src.routes.ArticleRoute import router as article_router
+from src.routes.departments.groceries_routes import router as groceries_route
 import json
 from pathlib import Path
 
@@ -31,3 +32,4 @@ async def get_news():
 
 # Include the article routes
 app.include_router(article_router)
+app.include_router(groceries_route)
