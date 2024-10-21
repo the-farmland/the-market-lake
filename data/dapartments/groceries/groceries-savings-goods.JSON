@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "name": "Betty Crocker Cake Mix",
+    "category": "Baking",
+    "price": 2.99,
+    "discount": 0.50,
+    "brand": "Betty Crocker",
+    "quantity": "1 box",
+    "description": "Betty Crocker Super Moist Cake Mix - Just add water and eggs.",
+    "savings_end_date": "2024-10-31"
+  },
+  {
+    "id": "2",
+    "name": "Pillsbury Crescent Rolls",
+    "category": "Baking",
+    "price": 3.49,
+    "discount": 1.00,
+    "brand": "Pillsbury",
+    "quantity": "8 rolls",
+    "description": "Flaky, buttery crescent rolls ready in minutes.",
+    "savings_end_date": "2024-11-05"
+  },
+  {
+    "id": "3",
+    "name": "Kraft Macaroni & Cheese",
+    "category": "Pasta",
+    "price": 1.49,
+    "discount": 0.30,
+    "brand": "Kraft",
+    "quantity": "1 box",
+    "description": "Classic macaroni and cheese dinner, rich and creamy.",
+    "savings_end_date": "2024-10-25"
+  },
+  {
+    "id": "4",
+    "name": "Quaker Instant Oatmeal",
+    "category": "Breakfast",
+    "price": 4.29,
+    "discount": 0.75,
+    "brand": "Quaker",
+    "quantity": "10 packets",
+    "description": "Delicious, quick oatmeal - just add water or milk.",
+    "savings_end_date": "2024-11-10"
+  },
+  {
+    "id": "5",
+    "name": "Campbell's Tomato Soup",
+    "category": "Canned Goods",
+    "price": 1.79,
+    "discount": 0.40,
+    "brand": "Campbell's",
+    "quantity": "1 can",
+    "description": "Rich and hearty tomato soup, great for any meal.",
+    "savings_end_date": "2024-11-01"
+  },
+  {
+    "id": "6",
+    "name": "Nature Valley Granola Bars",
+    "category": "Snacks",
+    "price": 4.99,
+    "discount": 1.00,
+    "brand": "Nature Valley",
+    "quantity": "12 bars",
+    "description": "Crunchy granola bars made with oats and honey.",
+    "savings_end_date": "2024-11-15"
+  },
+  {
+    "id": "7",
+    "name": "Del Monte Green Beans",
+    "category": "Canned Goods",
+    "price": 1.29,
+    "discount": 0.25,
+    "brand": "Del Monte",
+    "quantity": "1 can",
+    "description": "Fresh-cut green beans, packed in water.",
+    "savings_end_date": "2024-10-28"
+  },
+  {
+    "id": "8",
+    "name": "Jif Peanut Butter",
+    "category": "Spreads",
+    "price": 3.99,
+    "discount": 0.75,
+    "brand": "Jif",
+    "quantity": "16 oz",
+    "description": "Creamy peanut butter, perfect for sandwiches.",
+    "savings_end_date": "2024-11-12"
+  },
+  {
+    "id": "9",
+    "name": "Tropicana Orange Juice",
+    "category": "Beverages",
+    "price": 5.49,
+    "discount": 1.50,
+    "brand": "Tropicana",
+    "quantity": "59 oz",
+    "description": "100% pure, fresh-squeezed orange juice.",
+    "savings_end_date": "2024-11-08"
+  },
+  {
+    "id": "10",
+    "name": "Cheerios Cereal",
+    "category": "Breakfast",
+    "price": 3.99,
+    "discount": 1.00,
+    "brand": "General Mills",
+    "quantity": "14 oz",
+    "description": "Whole grain oat cereal, great for a healthy breakfast.",
+    "savings_end_date": "2024-10-30"
+  }
+]
