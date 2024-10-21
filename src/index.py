@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from src.dtos.ISayHelloDto import ISayHelloDto
 from src.routes.ArticleRoute import router as article_router
-from src.routes.departments.groceries.the_groceries_routes import router as groceries_route
+from src.routes.departments.groceries.The_Groceries_Routes import router as groceries_route
 import json
 from pathlib import Path
 
