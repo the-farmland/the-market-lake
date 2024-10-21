@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.controllers.departments.groceries.groceries_controller import router as groceries_router
+from src.controllers.departments.groceries.the_groceries_controller import router as groceries_router
 
 groceries_route = APIRouter()
 
