@@ -7,9 +7,11 @@ from src.subroutes.departments.groceries.groceries_savings_subroute import read_
 
 router = APIRouter()
 
-async def authenticate(request: Request):
-    await is_authenticated_hash(request)
-    await is_authenticated_serial(request)
+# Modified authenticate function to optionally disable authentication
+async def authenticate(request: Request, use_auth: bool = False):
+    if use_auth:
+        await is_authenticated_hash(request)
+        await is_authenticated_serial(request)
     return True
 
 def read_groceries_file():
@@ -21,7 +23,7 @@ def read_groceries_file():
         raise HTTPException(status_code=404, detail="Groceries file not found")
 
 @router.get("/grocery/{id}")
-async def get_grocery(id: str, auth: bool = Depends(authenticate)):
+async def get_grocery(id: str, auth: bool = Depends(authenticate)):  
     groceries_data = read_groceries_file()
     for grocery in groceries_data:
         if grocery["id"] == id:
@@ -58,7 +60,7 @@ async def update_grocery(id: str, request: Request, auth: bool = Depends(authent
     raise HTTPException(status_code=404, detail="Grocery not found")
 
 @router.delete("/grocery/delete/{id}")
-async def delete_grocery(id: str, auth: bool = Depends(authenticate)):
+async def delete_grocery(id: str, auth: bool = Depends(authenticate)):  
     groceries_data = read_groceries_file()
     for i, grocery in enumerate(groceries_data):
         if grocery["id"] == id:
