@@ -3,12 +3,12 @@ from pathlib import Path
 import json
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
-from src.subroutes.departments.groceries.GroceriesSavingsSubroute import read_groceries_savings
+from src.subroutes.departments.groceries.Groceries_Savings_Subroute import read_groceries_savings
 
 router = APIRouter()
 
 # Modified authenticate function to optionally disable authentication
-async def authenticate(request: Request, use_auth: bool = True):
+async def authenticate(request: Request, use_auth: bool = False):
     if use_auth:
         await is_authenticated_hash(request)
         await is_authenticated_serial(request)
