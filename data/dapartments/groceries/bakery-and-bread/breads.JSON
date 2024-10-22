@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "name": "Whole Wheat Bread",
+      "price": 2.50,
+      "category": "Bread"
+    },
+    {
+      "id": 2,
+      "name": "White Bread",
+      "price": 2.00,
+      "category": "Bread"
+    },
+    {
+      "id": 3,
+      "name": "Multigrain Bread",
+      "price": 3.00,
+      "category": "Bread"
+    },
+    {
+      "id": 4,
+      "name": "Sourdough Bread",
+      "price": 3.50,
+      "category": "Bread"
+    },
+    {
+      "id": 5,
+      "name": "Rye Bread",
+      "price": 2.80,
+      "category": "Bread"
+    },
+    {
+      "id": 6,
+      "name": "Baguette",
+      "price": 1.80,
+      "category": "Bread"
+    },
+    {
+      "id": 7,
+      "name": "Ciabatta Bread",
+      "price": 3.20,
+      "category": "Bread"
+    },
+    {
+      "id": 8,
+      "name": "Pita Bread",
+      "price": 2.20,
+      "category": "Bread"
+    },
+    {
+      "id": 9,
+      "name": "Focaccia Bread",
+      "price": 3.40,
+      "category": "Bread"
+    },
+    {
+      "id": 10,
+      "name": "Brioche Bread",
+      "price": 3.60,
+      "category": "Bread"
+    }
+  ]
+
