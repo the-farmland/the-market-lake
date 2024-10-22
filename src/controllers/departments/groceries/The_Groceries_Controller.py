@@ -3,9 +3,12 @@ from pathlib import Path
 import json
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
-from src.subroutes.departments.groceries.Groceries_Savings_Subroute import read_groceries_savings
+from src.subcontrollers.departments.groceries.Groceries_Savings_Controller import router as groceries_savings_router
 
 router = APIRouter()
+
+# Include the routes for grocery savings
+router.include_router(groceries_savings_router)
 
 # Modified authenticate function to optionally disable authentication
 async def authenticate(request: Request, use_auth: bool = False):
@@ -34,11 +37,6 @@ async def get_grocery(id: str, auth: bool = Depends(authenticate)):
 async def get_groceries(auth: bool = Depends(authenticate)):
     groceries_data = read_groceries_file()
     return {"groceries": groceries_data}
-
-@router.get("/groceries/savings")
-async def get_grocery_savings(auth: bool = Depends(authenticate)):
-    savings_data = read_groceries_savings()
-    return {"savings": savings_data}
 
 @router.post("/grocery/post")
 async def create_grocery(request: Request, auth: bool = Depends(authenticate)):
