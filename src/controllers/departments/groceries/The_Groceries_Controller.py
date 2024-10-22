@@ -75,7 +75,7 @@ async def get_all_savings_with_product_is_saving(auth: bool = Depends(authentica
     # Log the retrieved groceries data for debugging
     logger.info("Retrieved groceries data: %s", groceries_data)
     # Filter groceries where product_is_saving is True
-    savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving")]
+    savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving", False)]
     # Log the filtered savings products for debugging
     logger.info("Filtered savings products: %s", savings_products)
     # Return only those groceries that are on sale
