@@ -50,7 +50,7 @@
   {
     "id": "5",
     "name": "Campbell's Tomato Soup",
-    "category": "Canned Goods",
+    "category": "Canned-Goods",
     "price": 1.79,
     "discount": 0.40,
     "brand": "Campbell's",
@@ -74,7 +74,7 @@
   {
     "id": "7",
     "name": "Del Monte Green Beans",
-    "category": "Canned Goods",
+    "category": "Canned-Goods",
     "price": 1.29,
     "discount": 0.25,
     "brand": "Del Monte",
