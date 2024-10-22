@@ -1,0 +1,72 @@
+ [
+    {
+      "id": 1,
+      "name": "Whole Wheat Bread",
+      "brand": "Bakery Fresh",
+      "price": 2.99,
+      "on_sale": true
+    },
+    {
+      "id": 2,
+      "name": "Croissant",
+      "brand": "Butter Delight",
+      "price": 1.49,
+      "on_sale": false
+    },
+    {
+      "id": 3,
+      "name": "Baguette",
+      "brand": "Paris Bakery",
+      "price": 1.99,
+      "on_sale": true
+    },
+    {
+      "id": 4,
+      "name": "Sourdough Bread",
+      "brand": "Artisan Bakes",
+      "price": 3.49,
+      "on_sale": false
+    },
+    {
+      "id": 5,
+      "name": "Cinnamon Roll",
+      "brand": "Sweet Treats",
+      "price": 2.59,
+      "on_sale": true
+    },
+    {
+      "id": 6,
+      "name": "Bagel",
+      "brand": "New York Delights",
+      "price": 1.19,
+      "on_sale": false
+    },
+    {
+      "id": 7,
+      "name": "Pita Bread",
+      "brand": "Mediterranean Kitchen",
+      "price": 2.29,
+      "on_sale": true
+    },
+    {
+      "id": 8,
+      "name": "Rye Bread",
+      "brand": "Healthy Choice",
+      "price": 3.19,
+      "on_sale": false
+    },
+    {
+      "id": 9,
+      "name": "Muffin",
+      "brand": "Morning Bakes",
+      "price": 2.49,
+      "on_sale": true
+    },
+    {
+      "id": 10,
+      "name": "Focaccia",
+      "brand": "Italian Bakes",
+      "price": 4.49,
+      "on_sale": false
+    }
+  ]
