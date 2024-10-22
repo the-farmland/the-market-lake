@@ -79,7 +79,7 @@ async def delete_grocery(id: str, auth: bool = Depends(authenticate)):
 async def get_savings(auth: bool = Depends(authenticate)):
     return {"savings": await get_all_savings(auth)}
 
-@router.get("/groceries/savings/{id}")
+@router.get("/groceries/savings/{product_is_saving}")
 async def get_saving(id: str, auth: bool = Depends(authenticate)):
     return {"saving": await get_saving_by_id(id, auth)}
 
