@@ -1,3 +1,4 @@
+# The_Products_Library.py
 import json
 
 class JsonDataHandler:
@@ -9,37 +10,14 @@ class JsonDataHandler:
         with open(file_path, 'r') as file:
             return json.load(file)
 
-    def get_all_products(self):
-        """Return all products."""
-        return self.data
-
-    def get_product_by_id(self, product_id):
-        """Return a product by its ID."""
-        for product in self.data:
-            if product.get("id") == product_id:
-                return product
-        return None
-
-    def get_available_products(self):
-        """Return products that are currently available."""
-        return [product for product in self.data if not product.get("productIsCurrentlyUnavailableBUYBOX", False)]
-
     def get_products_on_sale(self):
         """Return products that are on sale."""
         return [product for product in self.data if product.get("product_is_saving") == "true"]
 
-# Example usage
-if __name__ == "__main__":
-    json_file_path = 'products.json'  # Path to your JSON file
-    handler = JsonDataHandler(json_file_path)
-    
-    # Example queries
-    all_products = handler.get_all_products()
-    product_by_id = handler.get_product_by_id("p12")
-    available_products = handler.get_available_products()
-    products_on_sale = handler.get_products_on_sale()
+# Initialize the handler and export products on sale
+json_file_path = 'products.json'  # Path to your product JSON file
+handler = JsonDataHandler(json_file_path)
+products_on_sale = handler.get_products_on_sale()
 
-    print("All Products:", all_products)
-    print("Product by ID:", product_by_id)
-    print("Available Products:", available_products)
-    print("Products on Sale:", products_on_sale)
+# Define the path for groceries data
+groceries_file_path = 'data/dapartments/groceries/groceries-savings-goods.JSON'
