@@ -26,5 +26,5 @@ class ProductLibrary:
         return any(product for product in self.products if product.get("id") == product_id)
 
 # Specify the path to your JSON file
-file_path = "data/products.json"
+file_path = "data/products.JSON"
 product_library = ProductLibrary(file_path)
