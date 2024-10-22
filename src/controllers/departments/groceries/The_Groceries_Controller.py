@@ -79,11 +79,13 @@ async def get_all_savings_with_product_is_saving(auth: bool = Depends(authentica
         grocery for grocery in groceries_data 
         if grocery.get("product_is_saving", "false").lower() == "true"
     ]
+    # Adjust IDs to start from 1 instead of 0
+    for index, product in enumerate(savings_products):
+        product["id"] = index + 1  # Set ID to start from 1
     # Log the filtered savings products for debugging
     logger.info("Filtered savings products: %s", savings_products)
     # Return only those groceries that are on sale
     return {"savings": savings_products}
-    
 
 @router.post("/groceries/savings")
 async def create_saving_entry(request: Request, auth: bool = Depends(authenticate)):
