@@ -11,7 +11,7 @@ app = FastAPI()
 @app.get("/", response_class=HTMLResponse)
 async def root():
     return """
-    <div style="background-image: url('path/to/your/image.jpg'); height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <div style="background-image: url('https://www.plus-us.com/home.jpg'); height: 100vh; display: flex; align-items: center; justify-content: center;">
     </div>
     """
 
