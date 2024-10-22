@@ -17,7 +17,6 @@ async def authenticate(request: Request, use_auth: bool = False):
 # Get all groceries
 @router.get("/groceries")
 async def get_groceries(auth: bool = Depends(authenticate)):
-    # Pull groceries data from get_all_savings function
     groceries_data = await get_all_savings(auth)
     return {"groceries": groceries_data}
 
@@ -36,7 +35,7 @@ async def create_grocery(request: Request, auth: bool = Depends(authenticate)):
     groceries_data = await get_all_savings(auth)
     new_grocery = await request.json()
     groceries_data.append(new_grocery)
-    return new_grocery  # Assuming that you want to return the newly created grocery
+    return new_grocery  # Return the newly created grocery
 
 # Update grocery by ID
 @router.put("/grocery/{id}")
@@ -66,7 +65,6 @@ async def get_savings(auth: bool = Depends(authenticate)):
 # Get all groceries with savings (product_is_saving = true)
 @router.get("/groceries/savings/all")
 async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
-    # Pull groceries data from get_all_savings function
     groceries_data = await get_all_savings(auth)
     # Filter groceries where product_is_saving is True
     savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving") is True]
