@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
+import logging
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
 from src.subcontroller.departments.groceries.Groceries_Savings_Subcontroller import (
@@ -6,6 +7,10 @@ from src.subcontroller.departments.groceries.Groceries_Savings_Subcontroller imp
 )
 
 router = APIRouter()
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Authenticate function (optional)
 async def authenticate(request: Request, use_auth: bool = False):
@@ -66,9 +71,14 @@ async def get_savings(auth: bool = Depends(authenticate)):
 @router.get("/groceries/savings/all")
 async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
     groceries_data = await get_all_savings(auth)
+    # Log the retrieved groceries data for debugging
+    logger.info("Retrieved groceries data: %s", groceries_data)
     # Filter groceries where product_is_saving is True
-    savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving") is True]
+    savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving")]
+    # Log the filtered savings products for debugging
+    logger.info("Filtered savings products: %s", savings_products)
     return {"savings": savings_products}
+
 
 @router.post("/groceries/savings")
 async def create_saving_entry(request: Request, auth: bool = Depends(authenticate)):
