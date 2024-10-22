@@ -68,5 +68,76 @@
       "brand": "Italian Bakes",
       "price": 4.49,
       "on_sale": false
+    },
+    {
+      "id": 11,
+      "name": "Betty Crocker Cake Mix",
+      "brand": "Betty Crocker",
+      "price": 2.99,
+      "on_sale": true
+    },
+    {
+      "id": 12,
+      "name": "Pillsbury Cookie Dough",
+      "brand": "Pillsbury",
+      "price": 3.49,
+      "on_sale": false
+    },
+    {
+      "id": 13,
+      "name": "Duncan Hines Brownie Mix",
+      "brand": "Duncan Hines",
+      "price": 2.79,
+      "on_sale": true
+    },
+    {
+      "id": 14,
+      "name": "Wilton Icing Colors",
+      "brand": "Wilton",
+      "price": 5.99,
+      "on_sale": false
+    },
+    {
+      "id": 15,
+      "name": "Baking Powder",
+      "brand": "Clabber Girl",
+      "price": 1.99,
+      "on_sale": false
+    },
+    {
+      "id": 16,
+      "name": "Vanilla Extract",
+      "brand": "McCormick",
+      "price": 4.99,
+      "on_sale": true
+    },
+    {
+      "id": 17,
+      "name": "Flour",
+      "brand": "King Arthur",
+      "price": 3.59,
+      "on_sale": false
+    },
+    {
+      "id": 18,
+      "name": "Sugar",
+      "brand": "Domino",
+      "price": 2.89,
+      "on_sale": true
+    },
+    {
+      "id": 19,
+      "name": "Baking Soda",
+      "brand": "Arm & Hammer",
+      "price": 1.49,
+      "on_sale": false
+    },
+    {
+      "id": 20,
+      "name": "Chocolate Chips",
+      "brand": "Nestle Toll House",
+      "price": 2.99,
+      "on_sale": true
     }
   ]
+
