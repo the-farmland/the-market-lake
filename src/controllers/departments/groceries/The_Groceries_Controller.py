@@ -79,9 +79,13 @@ async def delete_grocery(id: str, auth: bool = Depends(authenticate)):
 async def get_savings(auth: bool = Depends(authenticate)):
     return {"savings": await get_all_savings(auth)}
 
-@router.get("/groceries/savings/{product_is_saving}")
-async def get_saving(id: str, auth: bool = Depends(authenticate)):
-    return {"saving": await get_saving_by_id(id, auth)}
+# Get all groceries with savings (product_is_saving = true)
+@router.get("/groceries/savings/all")
+async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
+    groceries_data = read_groceries_file()
+    # Filter groceries where product_is_saving is True
+    savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving") is True]
+    return {"savings": savings_products}
 
 @router.post("/groceries/savings")
 async def create_saving_entry(request: Request, auth: bool = Depends(authenticate)):
