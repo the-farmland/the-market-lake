@@ -8,7 +8,8 @@
     "brand": "Betty Crocker",
     "quantity": "1 box",
     "description": "Betty Crocker Super Moist Cake Mix - Just add water and eggs.",
-    "savings_end_date": "2024-10-31"
+    "savings_end_date": "2024-10-31",
+    "product_is_saving":"true"
   },
   {
     "id": "2",
@@ -19,7 +20,8 @@
     "brand": "Pillsbury",
     "quantity": "8 rolls",
     "description": "Flaky, buttery crescent rolls ready in minutes.",
-    "savings_end_date": "2024-11-05"
+    "savings_end_date": "2024-11-05",
+    "product_is_saving":"true"
   },
   {
     "id": "3",
@@ -30,7 +32,8 @@
     "brand": "Kraft",
     "quantity": "1 box",
     "description": "Classic macaroni and cheese dinner, rich and creamy.",
-    "savings_end_date": "2024-10-25"
+    "savings_end_date": "2024-10-25",
+    "product_is_saving":"true"
   },
   {
     "id": "4",
@@ -41,7 +44,8 @@
     "brand": "Quaker",
     "quantity": "10 packets",
     "description": "Delicious, quick oatmeal - just add water or milk.",
-    "savings_end_date": "2024-11-10"
+    "savings_end_date": "2024-11-10",
+    "product_is_saving":"true"
   },
   {
     "id": "5",
@@ -52,7 +56,8 @@
     "brand": "Campbell's",
     "quantity": "1 can",
     "description": "Rich and hearty tomato soup, great for any meal.",
-    "savings_end_date": "2024-11-01"
+    "savings_end_date": "2024-11-01",
+    "product_is_saving":"true"
   },
   {
     "id": "6",
@@ -63,7 +68,8 @@
     "brand": "Nature Valley",
     "quantity": "12 bars",
     "description": "Crunchy granola bars made with oats and honey.",
-    "savings_end_date": "2024-11-15"
+    "savings_end_date": "2024-11-15",
+    "product_is_saving":"true"
   },
   {
     "id": "7",
@@ -74,7 +80,8 @@
     "brand": "Del Monte",
     "quantity": "1 can",
     "description": "Fresh-cut green beans, packed in water.",
-    "savings_end_date": "2024-10-28"
+    "savings_end_date": "2024-10-28",
+    "product_is_saving":"true"
   },
   {
     "id": "8",
@@ -85,7 +92,8 @@
     "brand": "Jif",
     "quantity": "16 oz",
     "description": "Creamy peanut butter, perfect for sandwiches.",
-    "savings_end_date": "2024-11-12"
+    "savings_end_date": "2024-11-12",
+    "product_is_saving":"true"
   },
   {
     "id": "9",
@@ -96,7 +104,8 @@
     "brand": "Tropicana",
     "quantity": "59 oz",
     "description": "100% pure, fresh-squeezed orange juice.",
-    "savings_end_date": "2024-11-08"
+    "savings_end_date": "2024-11-08",
+    "product_is_saving":"false"
   },
   {
     "id": "10",
@@ -107,6 +116,7 @@
     "brand": "General Mills",
     "quantity": "14 oz",
     "description": "Whole grain oat cereal, great for a healthy breakfast.",
-    "savings_end_date": "2024-10-30"
+    "savings_end_date": "2024-10-30",
+    "product_is_saving":"true"
   }
 ]
