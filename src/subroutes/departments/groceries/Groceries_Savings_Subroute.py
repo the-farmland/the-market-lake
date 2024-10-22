@@ -3,7 +3,7 @@ from pathlib import Path
 from fastapi import HTTPException
 
 def read_groceries_savings():
-    groceries_file = Path("data/products.json)
+    groceries_file = Path("data/products.json")
     if groceries_file.exists():
         with open(groceries_file, "r") as file:
             return json.load(file)
