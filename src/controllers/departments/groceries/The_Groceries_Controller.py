@@ -43,6 +43,19 @@ async def get_grocery_saving_by_id(id: str, auth: bool = Depends(authenticate)):
             return {"saving": grocery}
     raise HTTPException(status_code=404, detail="Saving not found")
 
+# New route to get savings by category
+@router.get("/groceries/savings/{category}")
+async def get_savings_by_category(category: str, auth: bool = Depends(authenticate)):
+    groceries_data = await get_all_savings(auth)
+    savings_by_category = [
+        grocery for grocery in groceries_data 
+        if grocery.get("category", "").lower() == category.lower() and grocery.get("product_is_saving", "false").lower() == "true"
+    ]
+    logger.info("Savings in category '%s': %s", category, savings_by_category)
+    if not savings_by_category:
+        raise HTTPException(status_code=404, detail="No savings found in this category")
+    return {"savings": savings_by_category}
+
 # Create new grocery
 @router.post("/grocery")
 async def create_grocery(request: Request, auth: bool = Depends(authenticate)):
