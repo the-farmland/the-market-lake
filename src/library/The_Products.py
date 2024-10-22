@@ -1,30 +1,45 @@
-# the_products_library.py
-
 import json
-from pathlib import Path
-from fastapi import HTTPException
 
-class ProductLibrary:
+class JsonDataHandler:
     def __init__(self, file_path):
-        self.file_path = Path(file_path)
-        self.products = self.load_products()
+        self.data = self.load_json(file_path)
 
-    def load_products(self):
-        """Loads the products from the JSON file."""
-        if not self.file_path.exists():
-            raise HTTPException(status_code=404, detail="JSON file not found")
-
-        with open(self.file_path, "r") as file:
+    def load_json(self, file_path):
+        """Load JSON data from a file."""
+        with open(file_path, 'r') as file:
             return json.load(file)
 
+    def get_all_products(self):
+        """Return all products."""
+        return self.data
+
+    def get_product_by_id(self, product_id):
+        """Return a product by its ID."""
+        for product in self.data:
+            if product.get("id") == product_id:
+                return product
+        return None
+
+    def get_available_products(self):
+        """Return products that are currently available."""
+        return [product for product in self.data if not product.get("productIsCurrentlyUnavailableBUYBOX", False)]
+
     def get_products_on_sale(self):
-        """Returns a list of products that are marked as saving."""
-        return [product for product in self.products if product.get("product_is_saving", "false").lower() == "true"]
+        """Return products that are on sale."""
+        return [product for product in self.data if product.get("product_is_saving") == "true"]
 
-    def product_exists(self, product_id):
-        """Check if a product exists by its ID."""
-        return any(product for product in self.products if product.get("id") == product_id)
+# Example usage
+if __name__ == "__main__":
+    json_file_path = 'products.json'  # Path to your JSON file
+    handler = JsonDataHandler(json_file_path)
+    
+    # Example queries
+    all_products = handler.get_all_products()
+    product_by_id = handler.get_product_by_id("p12")
+    available_products = handler.get_available_products()
+    products_on_sale = handler.get_products_on_sale()
 
-# Specify the path to your JSON file
-file_path = "data/products.JSON"
-product_library = ProductLibrary(file_path)
+    print("All Products:", all_products)
+    print("Product by ID:", product_by_id)
+    print("Available Products:", available_products)
+    print("Products on Sale:", products_on_sale)
