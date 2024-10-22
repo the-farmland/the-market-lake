@@ -3,7 +3,7 @@ import logging
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
 from src.subcontroller.departments.groceries.Groceries_Savings_Subcontroller import (
-    get_all_savings, get_saving_by_id, create_saving, update_saving, delete_saving
+    get_all_savings, create_saving, update_saving, delete_saving
 )
 
 router = APIRouter()
@@ -33,6 +33,15 @@ async def get_grocery(id: str, auth: bool = Depends(authenticate)):
         if grocery["id"] == id:
             return {"grocery": grocery}
     raise HTTPException(status_code=404, detail="Grocery not found")
+
+# New route to get grocery saving by ID
+@router.get("/groceries/saving/{id}")
+async def get_grocery_saving_by_id(id: str, auth: bool = Depends(authenticate)):
+    groceries_data = await get_all_savings(auth)
+    for grocery in groceries_data:
+        if grocery["id"] == id:
+            return {"saving": grocery}
+    raise HTTPException(status_code=404, detail="Saving not found")
 
 # Create new grocery
 @router.post("/grocery")
@@ -70,21 +79,15 @@ async def get_savings(auth: bool = Depends(authenticate)):
 # Get all groceries with savings (product_is_saving = true)
 @router.get("/groceries/savings/all")
 async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
-    # Retrieve all grocery data
     groceries_data = await get_all_savings(auth)
-    # Log the retrieved groceries data for debugging
     logger.info("Retrieved groceries data: %s", groceries_data)
-    # Filter groceries where product_is_saving is "true"
     savings_products = [
         grocery for grocery in groceries_data 
         if grocery.get("product_is_saving", "false").lower() == "true"
     ]
-    # Adjust IDs to start from 1 instead of 0
     for index, product in enumerate(savings_products):
-        product["id"] = index + 1  # Set ID to start from 1
-    # Log the filtered savings products for debugging
+        product["id"] = index + 1
     logger.info("Filtered savings products: %s", savings_products)
-    # Return only those groceries that are on sale
     return {"savings": savings_products}
 
 @router.post("/groceries/savings")
