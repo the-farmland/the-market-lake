@@ -1,15 +1,11 @@
-# main.py
-from src.library.The_Products import product_library
+import json
+from pathlib import Path
+from fastapi import HTTPException
 
 def read_groceries_savings():
-    """Reads products from the library and checks for savings."""
-    products_on_sale = product_library.get_products_on_sale()
-    
-    if not products_on_sale:
-        print("No products are currently on sale.")
+    groceries_file = Path("data/dapartments/groceries/groceries-savings-goods.JSON")
+    if groceries_file.exists():
+        with open(groceries_file, "r") as file:
+            return json.load(file)
     else:
-        for product in products_on_sale:
-            print(f"Product ID {product['id']} - Passed (Saving)")
-
-# Example usage
-read_groceries_savings()
+        raise HTTPException(status_code=404, detail="Groceries savings file not found")
