@@ -49,7 +49,7 @@ async def get_savings_by_category(category: str, auth: bool = Depends(authentica
     groceries_data = await get_all_savings(auth)
     savings_by_category = [
         grocery for grocery in groceries_data 
-        if grocery.get("category", "").lower() == category.lower() and grocery.get("product_is_saving", "false").lower() == "true"
+        if grocery.get("product_category", "").lower() == category.lower() and grocery.get("product_is_saving", "false").lower() == "true"
     ]
     logger.info("Savings in category '%s': %s", category, savings_by_category)
     if not savings_by_category:
