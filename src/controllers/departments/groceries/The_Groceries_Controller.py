@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 from src.helpers.SerialAuth import is_authenticated_serial
 from src.helpers.TheHasher import is_authenticated_hash
-from src.subcontrollers.departments.groceries.Groceries_Savings_Subcontroller import (
+from src.subcontroller.departments.groceries.Groceries_Savings_Subcontroller import (
     get_all_savings, get_saving_by_id, create_saving, update_saving, delete_saving
 )
 
