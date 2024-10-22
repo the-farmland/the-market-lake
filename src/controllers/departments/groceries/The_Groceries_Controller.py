@@ -70,6 +70,7 @@ async def get_savings(auth: bool = Depends(authenticate)):
 # Get all groceries with savings (product_is_saving = true)
 @router.get("/groceries/savings/all")
 async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
+    # Retrieve all grocery data
     groceries_data = await get_all_savings(auth)
     # Log the retrieved groceries data for debugging
     logger.info("Retrieved groceries data: %s", groceries_data)
@@ -77,8 +78,8 @@ async def get_all_savings_with_product_is_saving(auth: bool = Depends(authentica
     savings_products = [grocery for grocery in groceries_data if grocery.get("product_is_saving")]
     # Log the filtered savings products for debugging
     logger.info("Filtered savings products: %s", savings_products)
+    # Return only those groceries that are on sale
     return {"savings": savings_products}
-
 
 @router.post("/groceries/savings")
 async def create_saving_entry(request: Request, auth: bool = Depends(authenticate)):
