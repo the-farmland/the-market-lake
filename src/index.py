@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    return "<h1>Welcome to the API</h1>"  # You can return a simple HTML message or another default content
+    return "<h1>Welcome to the API</h1>"
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
@@ -34,4 +34,4 @@ async def get_news():
 app.include_router(article_router)
 
 # Include the groceries routes
-app.include_router(groceries_router)  # Add the groceries router here
+app.include_router(groceries_router)  # Groceries controller includes savings
