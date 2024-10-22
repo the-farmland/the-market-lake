@@ -23,7 +23,7 @@ async def authenticate(request: Request, use_auth: bool = False):
 @router.get("/groceries")
 async def get_groceries(auth: bool = Depends(authenticate)):
     groceries_data = await get_all_savings(auth)
-    return {"groceries": groceries_data}
+    return {"groceries": groceries_data}  # No ID modification needed
 
 # Get grocery by ID
 @router.get("/grocery/{id}")
@@ -39,7 +39,7 @@ async def get_grocery(id: str, auth: bool = Depends(authenticate)):
 async def create_grocery(request: Request, auth: bool = Depends(authenticate)):
     groceries_data = await get_all_savings(auth)
     new_grocery = await request.json()
-    groceries_data.append(new_grocery)
+    groceries_data.append(new_grocery)  # New grocery retains its ID
     return new_grocery  # Return the newly created grocery
 
 # Update grocery by ID
@@ -70,21 +70,14 @@ async def get_savings(auth: bool = Depends(authenticate)):
 # Get all groceries with savings (product_is_saving = true)
 @router.get("/groceries/savings/all")
 async def get_all_savings_with_product_is_saving(auth: bool = Depends(authenticate)):
-    # Retrieve all grocery data
     groceries_data = await get_all_savings(auth)
-    # Log the retrieved groceries data for debugging
     logger.info("Retrieved groceries data: %s", groceries_data)
-    # Filter groceries where product_is_saving is "true"
     savings_products = [
         grocery for grocery in groceries_data 
         if grocery.get("product_is_saving", "false").lower() == "true"
     ]
-    # Adjust IDs to start from 1 instead of 0
-    for index, product in enumerate(savings_products):
-        product["id"] = index + 1  # Set ID to start from 1
-    # Log the filtered savings products for debugging
+    # No need to adjust IDs; we keep the original IDs from the JSON
     logger.info("Filtered savings products: %s", savings_products)
-    # Return only those groceries that are on sale
     return {"savings": savings_products}
 
 @router.post("/groceries/savings")
@@ -98,3 +91,11 @@ async def update_saving_entry(id: str, request: Request, auth: bool = Depends(au
 @router.delete("/groceries/savings/{id}")
 async def delete_saving_entry(id: str, auth: bool = Depends(authenticate)):
     return await delete_saving(id, auth)
+
+# New route to get specific savings by ID
+@router.get("/groceries/savings/{id}")
+async def get_saving_by_id_route(id: str, auth: bool = Depends(authenticate)):
+    saving = await get_saving_by_id(id, auth)
+    if saving:
+        return {"saving": saving}
+    raise HTTPException(status_code=404, detail="Saving
